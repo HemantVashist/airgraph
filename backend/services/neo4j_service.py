@@ -32,7 +32,7 @@ async def run_cypher(cypher: str) -> list:
 
 
 async def get_schema() -> dict:
-    """Return node labels, relationship types, and property keys."""
+    """Return node labels, relationship types, and property keys, filtered for the aviation schema."""
     driver = get_driver()
     async with driver.session() as session:
         labels_result = await session.run("CALL db.labels()")
@@ -43,6 +43,15 @@ async def get_schema() -> dict:
 
         prop_result = await session.run("CALL db.propertyKeys()")
         prop_keys = [r["propertyKey"] async for r in prop_result]
+
+    # Filter to ensure movie/tmdb or other project schemas are excluded if sharing a Neo4j DB
+    valid_labels = {"Airport", "Country", "Airline", "Plane"}
+    valid_rels = {"IN_COUNTRY", "FLIGHT_TO"}
+    valid_props = {"code", "name", "city", "lat", "lon", "distance_km", "airline", "plane"}
+
+    labels = [l for l in labels if l in valid_labels]
+    rel_types = [r for r in rel_types if r in valid_rels]
+    prop_keys = [p for p in prop_keys if p in valid_props]
 
     return {"labels": labels, "relationship_types": rel_types, "property_keys": prop_keys}
 

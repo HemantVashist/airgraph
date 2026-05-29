@@ -234,10 +234,6 @@ def clear_database(session):
         "DROP CONSTRAINT FOR (c:Country) REQUIRE c.name IS UNIQUE IF EXISTS",
         "DROP CONSTRAINT FOR (al:Airline) REQUIRE al.code IS UNIQUE IF EXISTS",
         "DROP CONSTRAINT FOR (pl:Plane) REQUIRE pl.code IS UNIQUE IF EXISTS",
-        "DROP CONSTRAINT FOR (m:Movie) REQUIRE m.tmdb_id IS UNIQUE IF EXISTS",
-        "DROP CONSTRAINT FOR (p:Person) REQUIRE p.tmdb_id IS UNIQUE IF EXISTS",
-        "DROP CONSTRAINT FOR (g:Genre) REQUIRE g.name IS UNIQUE IF EXISTS",
-        "DROP CONSTRAINT FOR (s:Studio) REQUIRE s.name IS UNIQUE IF EXISTS",
     ]
     for c in constraints:
         try:

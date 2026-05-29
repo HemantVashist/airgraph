@@ -4,10 +4,6 @@
 
 AirGraph is a demo application built on **OpenFlights aviation data** and **Neo4j AuraDB**. Ask a natural-language question, watch a force-directed graph animate on screen, read the generated Cypher query, and get an AI answer — all powered by graph traversal, zero embeddings.
 
----
-
-## 📺 Video Demo
-
 ![AirGraph Interactive Demo](./assets/video_demo.gif)
 
 ---
