@@ -8,7 +8,7 @@ AirGraph is a demo application built on **OpenFlights aviation data** and **Neo4
 
 ## 📺 Video Demo
 
-![AirGraph Interactive Demo](./assets/video_demo.mp4)
+![AirGraph Interactive Demo](./assets/video_demo.gif)
 
 ---
 
